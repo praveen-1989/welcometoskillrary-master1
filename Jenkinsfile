@@ -16,9 +16,7 @@ node{
 		def mvnHome = tool name: 'maven', type: 'maven'
 		withSonarQubeEnv('sonarqube'){
 		sh "${mvnHome}/bin/mvn sonar:sonar"
- 		-Dsonar.projectKey=maven-project2 \
-  		-Dsonar.host.url=http://13.233.46.41:9000 \
- 		-Dsonar.login=7f70d9ee734e3be25fd8719d33d9cc206df16060	
+	
 		}
 	}	
 	
