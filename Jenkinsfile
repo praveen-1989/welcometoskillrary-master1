@@ -13,7 +13,7 @@ node{
 		jacoco deltaBranchCoverage: '10'
 	}
 	stage('SonarQube Analysis'){ 
-		def mvnHome = tool name: 'maven-3', type: 'maven'
+		def mvnHome = tool name: 'maven', type: 'maven'
 		withSonarQubeEnv('sonarqube'){
 		sh "${mvnHome}/bin/mvn sonar:sonar"
 		}
