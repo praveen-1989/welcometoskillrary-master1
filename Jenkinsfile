@@ -28,8 +28,6 @@ node{
 		 }
 	 }
 	 stage("Deploy to Tomcat"){
-			sshagent(['tomcat9-dev']) {
- 			 sh 'scp -o StrictHostKeyChecking=no target/*.war ec2-user@52.66.207.177:/opt/tomcat-9/webapps'
-			}
+			deploy adapters: [tomcat9(credentialsId: 'TomcatUser', path: '', url: 'http://52.66.207.177:9090/')], contextPath: 'welcometoskillrary', war: '**/*.war'
 		}
 }
