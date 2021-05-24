@@ -10,7 +10,7 @@ node{
 	}
 	stage('Jacoco Reports'){
 
-		jacoco()
+		jacoco deltaBranchCoverage: '10'
 	}
 	
 	
