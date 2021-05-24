@@ -24,9 +24,12 @@ node{
              		 def qg = waitForQualityGate()
              		 if (qg.status != 'OK') {
                  		 error "Pipeline aborted due to quality gate failure: ${qg.status}"	
-	
 			 }
-
 		 }
 	 }
+	 stage("Deploy to Tomcat"){
+			sshagent(['tomcat9-dev']) {
+ 			 sh 'scp -o StrictHostKeyChecking=no target/*.war ec2-user@10.0.1.5:/opt/tomcat-9/webapps'
+			}
+		}
 }
