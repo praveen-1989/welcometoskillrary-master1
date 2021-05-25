@@ -8,6 +8,10 @@ node{
 		def mvnHome = tool name: 'maven', type: 'maven'
 		sh "${mvnHome}/bin/mvn clean package"
 	}
+	stage('Junit Testing Reports'){
+
+		junit '**/target/surefire-reports/*.xml'
+	}
 	stage('Jacoco Reports'){
 
 		jacoco deltaBranchCoverage: '10'
