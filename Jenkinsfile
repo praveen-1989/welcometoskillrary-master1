@@ -16,7 +16,7 @@ pipeline {
         }
 	
 	stages {
-		stage (clean workspace){
+		stage ('clean workspace'){
 			echo 'Clean the workspace.'
 			sh 'mvn clean'
 		}
