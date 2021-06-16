@@ -16,9 +16,10 @@ pipeline {
         }
 	
 	stages {
-		stage ('clean workspace'){
-			echo 'Clean the workspace.'
+		stage ('Clean Workspace') {
+			echo 'Clean the Workspace.'
 			sh 'mvn clean'
+			}
 		}
 	}
 }
